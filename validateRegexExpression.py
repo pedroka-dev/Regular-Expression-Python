@@ -20,6 +20,10 @@ class validateRegex:
 
 ### Tests cases
 regexTest = r"^(?![a-z])[A-Z]([(a-z)|( )|(,)]*)([.]|[!]|[?])$"
+#One sentence, with the first letter uppercase commas and spaces
+#The sentence can contain lettes, commas and spaces.
+#The sentence should not contain numbers, special characters or accents
+#The setence should end with exactly one period or one exclamation point or one interrogation point.
 
 valid_strings_list = [
     "Be kind, for everyone you meet is fighting a harder battle.",
@@ -31,20 +35,20 @@ valid_strings_list = [
     "Asafsafsafassaffsaafssfaasf.",
     "Aaaaaa,aaaaaaa.",
 ]
-print("===================SHOULD BE ALL VALID===================")
+print("===================SHOULD ALL PASS===================")
 validateRegex.valitateStringList(regexTest, valid_strings_list)
 
 #Invalid
 invalid_strings_list = [
     "Invalid because cammelCase.",
+    "AEIOU Invalid because multiple uppercases.",
     "INVALID BECAUSE UPPERCASE.",
-    "Invalid because mbers like 1 to 9.",
+    "Invalid because nummbers like 1 to 9.",
     "Invalid because multiple dots...",
     "Invalid because multiple exclamations!!!",
     "Invalid because numbers like 1 to 9..",
     "Invalid because #@#&*+- characters.",
     "Invalid because áóéíãõââ characters.",
-    "Invalid because áóéíãõââ characters.",
 ]
-print("===================SHOULD BE ALL INVALID===================")
+print("===================SHOULD ALL FAIL===================")
 validateRegex.valitateStringList(regexTest, invalid_strings_list)
